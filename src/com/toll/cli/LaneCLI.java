@@ -14,9 +14,11 @@ public final class LaneCLI {
     }
 
     public void run(Scanner scanner) {
-        while (scanner.hasNextLine()) {
+        while (true) {
             System.out.println("\nLane: 1) Create  2) Update status  0) Back");
-            String choice = CliSupport.read(scanner, "Choose: ");
+            System.out.print("Choose: ");
+            if (!scanner.hasNextLine()) return;
+            String choice = scanner.nextLine().trim();
             try {
                 switch (choice) {
                     case "1" -> create(scanner);

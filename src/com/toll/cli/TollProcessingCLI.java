@@ -14,9 +14,11 @@ public final class TollProcessingCLI {
     }
 
     public void run(Scanner scanner) {
-        while (scanner.hasNextLine()) {
+        while (true) {
             System.out.println("\nToll processing: 1) Process crossing  0) Back");
-            String choice = CliSupport.read(scanner, "Choose: ");
+            System.out.print("Choose: ");
+            if (!scanner.hasNextLine()) return;
+            String choice = scanner.nextLine().trim();
             try {
                 if (choice.equals("0")) return;
                 if (choice.equals("1")) process(scanner);

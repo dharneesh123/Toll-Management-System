@@ -13,10 +13,12 @@ public final class PaymentCLI {
     }
 
     public void run(Scanner scanner) {
-        while (scanner.hasNextLine()) {
+        while (true) {
             System.out.println("\nPayments: 1) Record toll payment  2) Record pass payment"
                     + "  3) Refund toll to FASTag  4) Refund recharge  0) Back");
-            String choice = CliSupport.read(scanner, "Choose: ");
+            System.out.print("Choose: ");
+            if (!scanner.hasNextLine()) return;
+            String choice = scanner.nextLine().trim();
             try {
                 switch (choice) {
                     case "1" -> recordToll(scanner);

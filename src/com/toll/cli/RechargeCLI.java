@@ -14,9 +14,11 @@ public final class RechargeCLI {
     }
 
     public void run(Scanner scanner) {
-        while (scanner.hasNextLine()) {
+        while (true) {
             System.out.println("\nRecharge: 1) Recharge FASTag  0) Back");
-            String choice = CliSupport.read(scanner, "Choose: ");
+            System.out.print("Choose: ");
+            if (!scanner.hasNextLine()) return;
+            String choice = scanner.nextLine().trim();
             try {
                 if (choice.equals("0")) return;
                 if (choice.equals("1")) recharge(scanner);

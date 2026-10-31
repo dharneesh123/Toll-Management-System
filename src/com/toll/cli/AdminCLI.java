@@ -11,9 +11,11 @@ public final class AdminCLI {
     }
 
     public void run(Scanner scanner) {
-        while (scanner.hasNextLine()) {
+        while (true) {
             System.out.println("\nAdmin: 1) Register  2) Find  0) Back");
-            String choice = CliSupport.read(scanner, "Choose: ");
+            System.out.print("Choose: ");
+            if (!scanner.hasNextLine()) return;
+            String choice = scanner.nextLine().trim();
             try {
                 switch (choice) {
                     case "1" -> System.out.println("Registered: "

@@ -1,6 +1,5 @@
 package com.toll;
 
-import java.util.Scanner;
 import com.toll.cli.AdminCLI;
 import com.toll.cli.DisputeCLI;
 import com.toll.cli.FASTagCLI;
@@ -33,6 +32,7 @@ import com.toll.services.TollPlazaService;
 import com.toll.services.TollProcessingService;
 import com.toll.services.TollRateService;
 import com.toll.services.VehicleService;
+import java.util.Scanner;
 
 public final class Main {
     private Main() { }
@@ -109,13 +109,25 @@ public final class Main {
             PaymentCLI paymentCLI,
             DisputeCLI disputeCLI,
             ReportCLI reportCLI) {
-        while (scanner.hasNextLine()) {
+        while (true) {
             System.out.println("\n=== Toll Management System ===");
-            System.out.println("1) Admins | 2) Toll plazas | 3) Lanes | 4) Toll rates | "
-                    + "5) Vehicles | 6) FASTag accounts | 7) Process crossing | "
-                    + "8) Recharge FASTag | 9) Monthly passes | 10) Payments | "
-                    + "11) Disputes | 12) Reports | 0) Exit");
+            System.out.println("1) Admins");
+            System.out.println("2) Toll plazas");
+            System.out.println("3) Lanes");
+            System.out.println("4) Toll rates");
+            System.out.println("5) Vehicles");
+            System.out.println("6) FASTag accounts");
+            System.out.println("7) Process crossing");
+            System.out.println("8) Recharge FASTag");
+            System.out.println("9) Monthly passes");
+            System.out.println("10) Payments");
+            System.out.println("11) Disputes");
+            System.out.println("12) Reports");
+            System.out.println("0) Exit");
             System.out.print("Choose: ");
+            if (!scanner.hasNextLine()) {
+                return;
+            }
             String choice = scanner.nextLine().trim();
 
             switch (choice) {
@@ -132,10 +144,10 @@ public final class Main {
                 case "11" -> disputeCLI.run(scanner);
                 case "12" -> reportCLI.run(scanner);
                 case "0" -> {
-                    System.out.println("Goodbye.");
+                    System.out.println("End.");
                     return;
                 }
-                default -> System.out.println("Invalid choice. Choose 0 through 12.");
+                default -> System.out.println("Invalid choice. Choose 0 to 12.");
             }
         }
     }

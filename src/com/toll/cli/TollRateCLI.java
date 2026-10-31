@@ -14,9 +14,11 @@ public final class TollRateCLI {
     }
 
     public void run(Scanner scanner) {
-        while (scanner.hasNextLine()) {
+        while (true) {
             System.out.println("\nToll rates: 1) Set rate  2) Find effective  3) Calculate  0) Back");
-            String choice = CliSupport.read(scanner, "Choose: ");
+            System.out.print("Choose: ");
+            if (!scanner.hasNextLine()) return;
+            String choice = scanner.nextLine().trim();
             try {
                 switch (choice) {
                     case "1" -> setRate(scanner);

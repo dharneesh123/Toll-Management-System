@@ -12,9 +12,11 @@ public final class DisputeCLI {
     }
 
     public void run(Scanner scanner) {
-        while (scanner.hasNextLine()) {
+        while (true) {
             System.out.println("\nDisputes: 1) Submit  2) Resolve  0) Back");
-            String choice = CliSupport.read(scanner, "Choose: ");
+            System.out.print("Choose: ");
+            if (!scanner.hasNextLine()) return;
+            String choice = scanner.nextLine().trim();
             try {
                 switch (choice) {
                     case "1" -> submit(scanner);

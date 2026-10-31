@@ -14,11 +14,13 @@ public final class ReportCLI {
     }
 
     public void run(Scanner scanner) {
-        while (scanner.hasNextLine()) {
+        while (true) {
             System.out.println("\nReports: 1) Daily revenue  2) Lane vehicle count"
                     + "  3) Transaction summary  4) Failed transactions"
                     + "  5) Low-balance FASTags  0) Back");
-            String choice = CliSupport.read(scanner, "Choose: ");
+            System.out.print("Choose: ");
+            if (!scanner.hasNextLine()) return;
+            String choice = scanner.nextLine().trim();
             try {
                 switch (choice) {
                     case "1" -> showDailyRevenue(scanner);
