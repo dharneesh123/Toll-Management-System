@@ -111,13 +111,10 @@ public final class Main {
             ReportCLI reportCLI) {
         while (scanner.hasNextLine()) {
             System.out.println("\n=== Toll Management System ===");
-            System.out.println("1) Admins          2) Toll plazas");
-            System.out.println("3) Lanes           4) Toll rates");
-            System.out.println("5) Vehicles        6) FASTag accounts");
-            System.out.println("7) Process crossing  8) Recharge FASTag");
-            System.out.println("9) Monthly passes  10) Payments");
-            System.out.println("11) Disputes       12) Reports");
-            System.out.println("0) Exit");
+            System.out.println("1) Admins | 2) Toll plazas | 3) Lanes | 4) Toll rates | "
+                    + "5) Vehicles | 6) FASTag accounts | 7) Process crossing | "
+                    + "8) Recharge FASTag | 9) Monthly passes | 10) Payments | "
+                    + "11) Disputes | 12) Reports | 0) Exit");
             System.out.print("Choose: ");
             String choice = scanner.nextLine().trim();
 
